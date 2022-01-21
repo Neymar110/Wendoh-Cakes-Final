@@ -1,0 +1,88 @@
+/*  */
+.bg-img {
+    background-image: url("../../assets/shop attendant.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: inherit;
+    display: table;
+    width: 100%;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+    margin: auto;
+    
+}
+.menuContainer .card {
+    width: 400px;
+    margin: 20px;
+    transition: 1s ease-out;
+    height : 550px;
+}
+
+.menuContainer .card:hover {
+    width : 450px;
+    height : 500px
+}
+
+.menuContainer .card .imgContainer {
+    width: inherit;
+    height: 300px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+}
+
+/* RECOMMENDATIONS */
+.todays-recommendation {
+    background: #302f2d;
+    padding: 34px 0 31px;
+    text-align: center;
+}
+
+.todays-recommendation p {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-size: 0.70214rem;
+    color: #d5d5d5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    letter-spacing: 0.07143rem;
+    margin-bottom: 12px;
+}
+
+.todays-recommendation h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 45px;
+    color: #e9d8a1;
+    letter-spacing: 0.10714rem;
+    position: relative;
+}
+a {
+    color : white;
+}
+
+.todays-recommendation h4::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border: 1px solid #272624;
+    width: 200px;
+    left: 100px;
+    top: 9px;
+}
+
+.todays-recommendation h4::after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border: 1px solid #272624;
+    width: 200px;
+    right: 100px;
+    top: 9px;
+}

@@ -1,0 +1,26 @@
+<navbar [color] = "false" [displayType] = "true"></navbar>
+<div class = "todays-recommendation">
+    <p>TODAYS RECOMMENDATION IS</p>
+    <h4>{{ recomandation }}</h4>
+</div>
+<div class = "bg-img" id = "menu">   
+    <section class="menuContainer">
+        <div class="card" *ngFor = "let item of menuItems">
+            <div class="card-image imgContainer">
+                <img [src]="item.img" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <div class = "card-header">
+                    <h5 class="card-header-tite">{{ item.title }}</h5>
+                </div>
+                <div class = "card-content">
+                    <p class="card-text">{{ item.description }}</p>
+                    <p class = "price-paragraph">Price : {{ item.price }}</p>
+                </div>
+                <div class="card-footer">
+                    <button href="" class="button is-primary card-footer-item"><a>Get Now!</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
