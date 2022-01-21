@@ -1,0 +1,37 @@
+.index-banner{
+    width : 100%;
+    height : calc(100vh);
+    background-image: url("../../assets/Main Pictures/Banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+}
+
+    /* Vertical Center is to put the h1&h2 text at the center */
+.vertical-center {
+    display : table-cell;
+    vertical-align: middle;
+    padding-bottom : 100px;
+}
+
+h2 {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 60px;
+    line-height: 70px;
+    color: #fff;
+    text-align: center;
+    font-weight : 900px;
+    text-shadow: 2px 2px 8px #111; 
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+    font-weight : 100px;
+    text-shadow: 2px 2px 8px #111;
+    font-style: italic;
+    line-height: 40px;
+}
