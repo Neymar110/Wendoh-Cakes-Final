@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
@@ -17,9 +16,6 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit() {
     this.colorPicker()
-    // this.positionPicker()
-    console.log(this.decidedColor);
-    
   }
   
   colorPicker(){

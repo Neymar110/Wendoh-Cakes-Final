@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Wendoh-Angular-Final:build:production",
+            "firebaseProject": "wendoh-cakes-firebase",
+            "firebaseHostingSite": "wendoh-cakes-firebase"
+          }
         }
       }
     }

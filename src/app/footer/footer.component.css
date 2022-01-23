@@ -21,6 +21,10 @@ ul {
     transition: letter-spacing 0.5s;
 }
 
+.footer-links-main li :hover,  .footer-links-cases  li :hover{
+    color : orange;
+}
+
 
 /* RIGHT SIDE ICONS */
 .footer-icons {

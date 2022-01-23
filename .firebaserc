@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wendoh-cakes-firebase": {
+      "hosting": {
+        "Wendoh-Angular-Final": [
+          "wendoh-cakes-firebase"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wendoh-cakes-firebase"
+  }
+}

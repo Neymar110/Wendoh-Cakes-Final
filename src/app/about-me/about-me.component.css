@@ -1,0 +1,21 @@
+img {
+    width : 552px;
+    height: 365px;
+    clip-path:circle();
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 100px;
+    font-family: 'Bebas Neue', cursive;
+    font-size : 40px;
+}
+
+p {
+    font-family: 'Catamaran', sans-serif; 
+    text-overflow: ellipsis;
+}
+
+.columns {
+    margin : 10px
+}
