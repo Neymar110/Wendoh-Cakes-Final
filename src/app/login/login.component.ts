@@ -8,10 +8,10 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  constructor() { }
+  constructor(private auth : AuthService) { }
 
   login() {
-    // this.auth.login()
+    this.auth.login()
   }
 
 }

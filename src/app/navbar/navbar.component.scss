@@ -18,7 +18,7 @@ header {
     display: block;
     margin: 0 auto;
     text-align: center;
-    padding : 20px 0;
+    padding : 0px 0;
 }
 
 ul {
@@ -67,4 +67,29 @@ li a:hover {
 .white li a:hover {
     color : orange;
     letter-spacing: 3px;
+}
+
+.arrows {
+    margin-top: 10px;
+	width: 60px;
+	height: 40px;
+	position: absolute;
+
+}
+
+.arrows path {
+	stroke: #2994D1;
+	fill: transparent;
+}
+
+div a {
+    margin-right : 10px;
+}
+
+.dropdown-content a.dropdown-item:hover{
+    background-color : rgb(39, 93, 173)
+}
+
+.dropdown-content a.dropdown-item {
+    color : black
 }

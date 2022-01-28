@@ -1,7 +1,30 @@
 <header id = "navbar" [ngStyle] = "{ position : positioning }" [class] = "styling"> 
-    <!-- <button><img src = "../../assets/social_icons/blank_profile_picture.png" ></button>    -->
-    <a routerLink="" class = "wendoh-text" >WENDOH CAKES</a>       
-    <nav>
+    <div  *ngIf = "user"  class="dropdown"  [class.is-active] = "value" (click) = "value=!value">
+        <div class="dropdown-trigger" >
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <h1>Hi, {{ user.name }}</h1>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a href="#" class="dropdown-item">
+              Shopping Cart
+            </a>
+            <a href="#" class="dropdown-item">
+              Payment Method
+            </a>
+            <a href="#" class="dropdown-item" (click) = "logout()">
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+
+    <a routerLink="" class = "wendoh-text" >WENDOH CAKES</a> 
+    <nav class = "hello">
         <ul>
             <li><a routerLink = "/menu" ><em>Menu</em></a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
