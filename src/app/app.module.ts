@@ -12,11 +12,13 @@ import { LoginComponent } from './login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-// import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { FormsModule } from '@angular/forms';
 import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { NewProductFormComponent } from './new-product-form/new-product-form.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,13 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     MenuComponent,
     AboutMeComponent,
     LoginComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    NewProductFormComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),

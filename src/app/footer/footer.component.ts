@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'footer-element',
@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  @Input('show-actions') showActions : boolean = true;
 
   constructor() { }
 

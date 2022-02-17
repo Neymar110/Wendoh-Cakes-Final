@@ -1,0 +1,46 @@
+<navbar [color] = "false" ></navbar>
+<div class = "columns">
+    <form #f = "ngForm"  (ngSubmit) = "save(f.value)" class = "column is-half">
+        <!-- <form #f = "ngForm"  (ngSubmit) = "onSub(f.value)"> -->
+        <div class="field">
+            <label for="title" class="label">Title</label>
+            <input #title = "ngModel" [(ngModel)]="product.title" name = "title" id = "title" type="text" class="input" required>
+            <div class = "notification is-danger" *ngIf="title.touched && title.invalid" >Title is required</div>
+        </div>
+        <div class="field">
+            <label for="price" class="label">Price</label>
+            <div class="control has-icons-left">
+            <input #price = "ngModel" [(ngModel)]="product.price"  name = "price" id = "price" type="number" class="input" required isNegative>
+            <!-- <div>{{price.errors | json}}</div> -->
+            <div class = "notification is-danger" *ngIf="price.touched && price.invalid" >
+                <p *ngIf="price.touched && price.invalid">Price is required</p>
+                <p *ngIf="price.touched && price.invalid && price.errors?.isNegative">Price is a negative numeric value</p>
+            </div>
+            <span class="icon is-small is-left">
+            </span>
+            </div>
+        </div>
+        <div class="field">
+            <label for="category" class="label">Category</label>
+            <select #category = "ngModel" [(ngModel)]="product.category" name = "category" id = "category" class="input" required>
+                <option value = ""></option>
+                <!-- c.$key where the identifier of each item is stored. Ex. seasonings -> Seasonings and Spices -->
+                <option *ngFor = "let c of categories$">
+                    {{ c.name }}
+                </option>
+            </select>
+            <div class = "notification is-danger" *ngIf="category.touched && category.invalid" >Category is required</div>
+        </div>
+        <div class="field">
+            <label for="imageUrl" class="label">Image URL</label>
+            <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name = "imageUrl" id = "imageUrl" type="text" class="input" required ImgUrlVal>
+            <div class = "notification is-danger" *ngIf="imageUrl.touched && imageUrl.invalid" >Url is required</div>
+            <div class = "notification is-danger" *ngIf="imageUrl.touched && imageUrl.invalid && imageUrl.errors?.url" >Url is invalid</div>
+        </div>
+            <button class="button is-primary one">Save</button>
+            <button type = "button"  class = "button is-danger" (click) = "delete()">Delete</button>
+    </form>
+    <div class="card column auto">
+        <product-card [product] = "product"></product-card>
+        </div>
+</div>

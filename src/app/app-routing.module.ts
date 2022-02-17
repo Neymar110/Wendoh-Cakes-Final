@@ -4,16 +4,18 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
+import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
-  {path : "", redirectTo:"home", pathMatch:"full"},
+  {path : "", redirectTo:"newproduct", pathMatch:"full"},
   {path : "home", component : HomeComponent},
   {path : "menu", component : MenuComponent},
   {path : "about-me", component : AboutMeComponent},
   {path : "login", component : LoginComponent},
   {path : "logout", component: LoginComponent},
-  { path : "shop", component : ShoppingCartComponent }
+  {path : "shop", component : ShoppingCartComponent },
+  {path : "new-product", component : NewProductFormComponent}
 ];
 
 @NgModule({

@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit{
   user :any;
   value : boolean = false;
   styling: string = "white";
+  bg_styling: string = "white";
   positioning: string = "static";
 
   constructor(private auth : AuthService) {     
@@ -24,7 +25,6 @@ export class NavbarComponent implements OnInit{
         this.Username = data?.name;
       })
     })
-    
   }
 
   logout(){
