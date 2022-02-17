@@ -8,6 +8,7 @@ import { ShoppingCartService } from '../shopping-cart.service';
 })
 export class ProductCardComponent{
   @Input('product') product:any;
+  @Input('show-actions') showActions : boolean = true;
   @Input('shopping-cart') set shopping_cart(cart: any){
     this.shoppingCart = cart;
   };

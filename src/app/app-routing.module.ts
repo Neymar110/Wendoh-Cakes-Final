@@ -9,6 +9,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {path : "", redirectTo:"newproduct", pathMatch:"full"},
+  // {path : "/", redirectTo:"newproduct", pathMatch:"full"},
   {path : "home", component : HomeComponent},
   {path : "menu", component : MenuComponent},
   {path : "about-me", component : AboutMeComponent},

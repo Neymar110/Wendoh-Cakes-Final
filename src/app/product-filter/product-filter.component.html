@@ -1,0 +1,15 @@
+<div class="table-container">
+    <table class="table is-hoverable is-bordered">
+        <tbody>
+            <tr>
+                <td routerLink="/" [class.is-selected] = "!category"><a>All</a></td>
+            </tr>
+            <tr *ngFor = "let c of categories$" [class.is-selected] = "category === c.$key">
+                <td routerLink="/" [queryParams]="{ category:c.$key }">
+                    <a> {{ c.name }} </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

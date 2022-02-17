@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "dist/Wendoh-Angular-Final",
+    "site":"wendoh-cakes-firebase",
     "ignore": [
       "firebase.json",
       "**/.*",

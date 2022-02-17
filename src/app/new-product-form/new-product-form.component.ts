@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 import { CategoryService } from '../category.service';
+import { Product } from '../models/product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -9,43 +11,59 @@ import { ProductService } from '../product.service';
   styleUrls: ['./new-product-form.component.css']
 })
 export class NewProductFormComponent{
-  categories$:any;
-  constructor(private router : Router, private productService : ProductService, categoryService : CategoryService) { 
-    categoryService.getCategories().subscribe( data => {
-      this.categories$ = data.map(x => {
-        return x.payload.val();
-      });
-    })
-  }
-
-  product = {
-    price: 0,
-    title: "",
-    imageUrl: "",
-    category: "",
-    $key : ""
-  };
-  id:any;
-
-  save(product:object){
-
-    if(this.id){
-      this.productService.update(this.id, product)
-    }
-
-    else {
-      this.productService.create(product);
-    }
-
-    this.router.navigate(["/admin/products"]);
-  }
-
-  delete() {
-    if (!confirm("Are you sure you want to delete this product?")) return; 
+    // The dollar sign indicates that this variable is an observable
+    categories$:any;
+    product = {
+      price: 0,
+      title: "",
+      imageUrl: "",
+      category: "",
+      $key : ""
+    };
+    id:any;
+  
+    constructor(
+  
+      private router : Router,
+      private route : ActivatedRoute,
+      categoryService : CategoryService, 
+      private productService : ProductService,) {
       
-      this.productService.delete(this.id);
-      this.router.navigate(["/admin/products"]);
+        categoryService.getCategories().subscribe( data => {
+        this.categories$ = data.map(x => {
+          return x.payload.val();
+        });
+      })    
+  
+      this.id = this.route.snapshot.paramMap.get("id");
       
+      if (this.id) {
+        this.productService.getProduct(this.id).pipe(take(1)).subscribe(p => this.product = p as Product)
+      }
+    }
+  
+    save(product:object){
+  
+      if(this.id){
+        this.productService.update(this.id, product)
+      }
+  
+      else {
+        this.productService.create(product);
+      }
+  
+      this.router.navigate(["/menu"]);
+    }
+  
+    delete() {
+      if (!confirm("Are you sure you want to delete this product?")) return; 
+        
+        this.productService.delete(this.id);
+        this.router.navigate(["/menu"]);
+        
+    }
+  
+    
+  
+  
   }
-
-}

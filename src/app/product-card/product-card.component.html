@@ -16,7 +16,7 @@
         <br>
     </div>
 </div>
-<footer class="card-footer">
+<footer class="card-footer" *ngIf= "showActions">
     <button
     *ngIf = "getQuantity() === 0; else updateQuantity"
     (click) = "addToCart()"

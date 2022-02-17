@@ -19,6 +19,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     LoginComponent,
     ShoppingCartComponent,
     NewProductFormComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,

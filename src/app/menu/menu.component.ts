@@ -1,70 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+import { Product } from '../models/product';
+import { ActivatedRoute } from '@angular/router';
+import { ShoppingCartService } from '../shopping-cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit, OnDestroy{
+  products$:Product[] = [];
+  filteredProducts : any;
+  category : string | null;
+  cart : any;
+  subscription : Subscription;
 
-  recomandation : string = "Caramel Cake"; 
+  constructor(
+    route : ActivatedRoute, 
+    productService : ProductService, 
+    private shoppingCartService : ShoppingCartService
+    ){
+    
+    productService.getAll().subscribe(data => {
+      this.products$ = data.map(values => {
+        return {
+          key: values.key,
+          ...values.payload.val() as Product
+        }
+      })
 
-  menuItems =[
-    {
-      title: "Doughnuts",
-      description: "Lorem Ipsum sit amet dolor",
-      price: 500,
-      img: "../../assets/food_imgs/doughnut.jpg"
-    },
-    {
-      title: "Croissant",
-      description: "Lorem Ipsum sit amet dolor",
-      price: 500,
-      img: "../../assets/food_imgs/croissant.jpg"
-    },
-    {
-      title: "Macarons",
-      description: "Lorem Ipsum sit amet dolor",
-      price: 500,
-      img: "../../assets/food_imgs/macaroons.jpg"
-    },
-    {
-      title: "Cheesecake",
-      description: "Lorem Ipsum sit amet dolor",
-      price: 500,
-      img: "../../assets/food_imgs/Location BG.jpg"
-    },
-    {
-      title: "Puff Pastries",
-      description: "Puff pastry, also known as pâte feuilletée, is a flaky light pastry made from...",
-      price: 500,
-      img: "../../assets/food_imgs/Ball_pastry.jpg"
-    },
-    {
-      title: "Apple Pie",
-      description: "This pie tastes almost like cider in pie form. It's not tart at all but isn't overpoweringly sweet...",
-      price: 500,
-      img: "../../assets/food_imgs/Apple_pie.jpg"
-    },
-    {
-      title: "Caramel Cake",
-      description: "Caramel Cake",
-      price: 500,
-      img: "../../assets/food_imgs/caramel cake.jpg"
-    },
-    {
-      title : "Mint Cupcakes",
-      description : "Mint cupcakes!",
-      price : 500,
-      img : "../../assets/food_imgs/cupcakes.jpg"
-    },
-    {
-      title : "Chocolate Cake",
-      description : "Chocolate Cake",
-      price : 500,
-      img : "../../assets/food_imgs/Chocolate Cake.jpg"
-
-    }   
-  ]
+      route.queryParamMap.subscribe(params => {
+        this.category = params.get("category");
+        this.filteredProducts = (this.category) ? 
+          this.products$.filter(p => p.category === this.category) : this.filteredProducts = this.products$;
+      });
+    })
+  }
+  async ngOnInit(){
+    this.subscription = (await this.shoppingCartService.getCart())
+    .subscribe(cart => {
+      this.cart = cart
+      // console.log('DB cart is:', cart, 'and this.cart is: ', this.cart);
+    })
+  }
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
 }
+

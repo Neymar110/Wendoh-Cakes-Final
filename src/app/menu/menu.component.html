@@ -1,11 +1,41 @@
 <navbar [color] = "false" [displayType] = "true"></navbar>
 <div class = "todays-recommendation">
     <p>TODAYS RECOMMENDATION IS</p>
-    <h4>{{ recomandation }}</h4>
+    <h4>Cupcakes!!  </h4>
 </div>
+
 <div class = "bg-img" id = "menu">   
     <section class="menuContainer">
-        <div class="card" *ngFor = "let item of menuItems">
+        <div class="columns">
+            <div class="column is-3">
+                <product-filter [category] = "category"></product-filter>
+            </div>
+            <div class = "columns is-multiline main">
+                <div 
+                *ngFor = "let p of filteredProducts"
+                class="column card is-one-third">
+                    <product-card [product] = "p" [shopping-cart] = "cart"></product-card>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- <div class="columns">
+    <div class="column is-3">
+        <product-filter [category] = "category"></product-filter>
+    </div>
+    <div class = "columns is-multiline main">
+        <div 
+        *ngFor = "let p of filteredProducts"
+        class="column card is-one-third">
+            <product-card [product] = "p" [shopping-cart] = "cart"></product-card> -->
+            <!-- {{ filteredProducts  | json}} -->
+        <!-- </div>
+</div> -->
+
+
+<!--<div class="card" *ngFor = "let item of menuItems">
             <div class="card-image imgContainer">
                 <img [src]="item.img" class="card-img-top" alt="...">
             </div>
@@ -19,6 +49,5 @@
                     <button href="" class="button is-primary card-footer-item"><a>Get Now!</a></button>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </div>-->
+
