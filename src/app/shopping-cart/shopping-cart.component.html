@@ -1,0 +1,22 @@
+<navbar></navbar>
+<h1 class = "title"> Shopping Cart</h1>
+<ng-container *ngIf = "cart">
+    <p>
+        You have {{ totalItemsCount }} items in your shopping cart.
+    </p>
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart">
+                <td>{{item.product.title}}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>

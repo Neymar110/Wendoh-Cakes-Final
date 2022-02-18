@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit, OnDestroy{
   subscription : Subscription;
 
   constructor(
-    route : ActivatedRoute, 
+    private route : ActivatedRoute, 
     productService : ProductService, 
     private shoppingCartService : ShoppingCartService
     ){
@@ -35,15 +35,22 @@ export class MenuComponent implements OnInit, OnDestroy{
         this.category = params.get("category");
         this.filteredProducts = (this.category) ? 
           this.products$.filter(p => p.category === this.category) : this.filteredProducts = this.products$;
-      });
+        });
+      
     })
   }
   async ngOnInit(){
     this.subscription = (await this.shoppingCartService.getCart())
     .subscribe(cart => {
       this.cart = cart
-      // console.log('DB cart is:', cart, 'and this.cart is: ', this.cart);
     })
+
+    // this.route.queryParamMap.subscribe(params => {
+    //   this.category = params.get("category");
+    //   this.filteredProducts = (this.category) ? 
+    //     this.products$.filter(p => p.category === this.category) : this.filteredProducts = this.products$;
+    //   console.log(this.filteredProducts);
+    //   });
   }
   
   ngOnDestroy() {

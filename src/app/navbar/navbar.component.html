@@ -2,6 +2,9 @@
     <div  *ngIf = "user"  class="dropdown"  [class.is-active] = "value" (click) = "value=!value">
         <div class="dropdown-trigger" >
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <a class="navbar-item">
+                <img src="https://cdn1.iconfinder.com/data/icons/instagram-ui-glyph/48/Sed-09-512.png"  width="28">
+            </a>
             <h1>Hi, {{ user.name }}</h1>
             <span class="icon is-small">
               <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -10,11 +13,11 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu" role="menu">
           <div class="dropdown-content">
-          <a href="#" class="dropdown-item">
+          <ng-container *ngIf="user.isAdmin">
+            <a  *ngIf = "user" class = "dropdown-item" routerLink="/new-product">New products</a>
+          </ng-container>
+          <a routerLink = "/shopping-cart" class="dropdown-item">
               Shopping Cart
-            </a>
-            <a href="#" class="dropdown-item">
-              Payment Method
             </a>
             <a href="#" class="dropdown-item" (click) = "logout()">
               Logout
@@ -30,7 +33,7 @@
             <li><a routerLink="/contact">Contact Us</a></li>
             <li><a  routerLink="/location">Find Us</a></li>
             <li><a  routerLink="/about-me">About me</a></li>
-            <li><a  routerLink="/login">Login</a></li>
+            <li><a  *ngIf = "!user" routerLink="/login">Login</a></li>
         </ul>
     </nav>
 </header>
