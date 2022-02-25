@@ -4,6 +4,7 @@ import { Product } from '../models/product';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { Subscription } from 'rxjs';
+import { ShoppingCart } from '../models/shopping-cart';
 
 @Component({
   selector: 'menu',
@@ -14,7 +15,7 @@ export class MenuComponent implements OnInit, OnDestroy{
   products$:Product[] = [];
   filteredProducts : any;
   category : string | null;
-  cart : any;
+  cart : ShoppingCart;
   subscription : Subscription;
 
   constructor(

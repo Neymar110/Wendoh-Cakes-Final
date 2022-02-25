@@ -7,7 +7,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 export class ProductService {
   constructor(private db : AngularFireDatabase) { }
 
-  create(product : object) {
+  create_product(product : object) {
     // This pushes the object into the firebase database
     return this.db.list("/products").push(product);
   }
@@ -27,6 +27,10 @@ export class ProductService {
 
   delete(productId:any){
     return this.db.object('/products/' + productId).remove();
+  }
+  
+  create_order(shoppingCart){
+    return this.db.list('/orders/').push(shoppingCart);
   }
   
 }

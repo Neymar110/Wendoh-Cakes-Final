@@ -20,6 +20,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
     ShoppingCartComponent,
     NewProductFormComponent,
     ProductCardComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,

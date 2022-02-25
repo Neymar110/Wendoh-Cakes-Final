@@ -21,4 +21,8 @@ export class ProductFilterComponent{
       })
     });
    }
+
+   get categoriesLength(){
+     return this.categories$.length
+   }
 }

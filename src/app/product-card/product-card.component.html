@@ -16,20 +16,12 @@
         <br>
     </div>
 </div>
-<footer class="card-footer" *ngIf= "showActions">
+<footer class="card-footer" *ngIf= "showActions && shoppingCart">
     <button
     *ngIf = "getQuantity() === 0; else updateQuantity"
     (click) = "addToCart()"
     class="button is-link is-fullwidth" >Add to cart</button>
-    <ng-template #updateQuantity class = "columns">
-        <div class="column">
-            <button (click) = "removeFromCart()"  class = "button is-light is-fullwidth">-</button>
-        </div>
-        <div class = "column">
-            <div class = "has-text-centered">{{ getQuantity() }} in cart</div>
-        </div>
-        <div class="column">
-            <button (click) = "addToCart()" class = "button is-light is-fullwidth">+</button>
-        </div>
+    <ng-template #updateQuantity class = "fullWidth">
+        <product-quantity [product] = "product" [shopping-cart]="shoppingCart"></product-quantity>
     </ng-template>
 </footer>

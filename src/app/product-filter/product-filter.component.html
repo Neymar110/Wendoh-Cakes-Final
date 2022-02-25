@@ -1,8 +1,8 @@
-<div class="table-container">
+<div class="table-container" *ngIf = "categoriesLength">
     <table class="table is-hoverable is-bordered">
         <tbody>
             <tr>
-                <td routerLink="/" [class.is-selected] = "!category"><a>All</a></td>
+                <td routerLink="/menu" [class.is-selected] = "!category"><a>All</a></td>
             </tr>
             <tr *ngFor = "let c of categories$" [class.is-selected] = "category === c.$key">
                 <td routerLink="/menu" [queryParams]="{ category:c.$key }">

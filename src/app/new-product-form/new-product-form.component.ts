@@ -50,7 +50,7 @@ export class NewProductFormComponent{
       }
   
       else {
-        this.productService.create(product);
+        this.productService.create_product(product);
       }
   
       this.router.navigate(["/menu"]);

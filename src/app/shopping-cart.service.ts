@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { ShoppingCart } from './models/shopping-cart';
@@ -8,7 +9,7 @@ import { ShoppingCart } from './models/shopping-cart';
 })
 export class ShoppingCartService {
 
-  constructor(private db : AngularFireDatabase) { }
+  constructor(private db : AngularFireDatabase, private router : Router) { }
 
   private create(){
     console.log(" new Date().getTime()");
@@ -59,5 +60,11 @@ export class ShoppingCartService {
     itemData$.subscribe(item => {
       item$.update({ product : product, quantity : (item?.quantity || 0) + change });  
     })
+  }
+
+  delete_shopping_cart(cartId){
+    let cart = this.db.object("/shopping-carts/" + cartId);
+    this.router.navigate(["/menu"])
+    return cart.remove();
   }
 }
