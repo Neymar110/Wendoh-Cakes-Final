@@ -2,13 +2,16 @@ import { Component, Input } from '@angular/core';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
-  selector: 'product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css']
+  selector: 'product-quantity',
+  templateUrl: './product-quantity.component.html',
+  styleUrls: ['./product-quantity.component.css']
 })
-export class ProductCardComponent{
-  @Input('product') product:any;
-  @Input('show-actions') showActions : boolean = true;
+export class ProductQuantityComponent{
+  @Input('product') set prod(prod){
+    this.product = prod
+  };
+
+  product: any
   @Input('shopping-cart') set shopping_cart(cart: any){
     this.shoppingCart = cart;
   };

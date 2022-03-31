@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { AdminAuthGuard } from './admin-auth-guard.service';
-import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
-import { AuthGuard } from './auth-guard.service';
-import { CheckOutComponent } from './checkout/checkout.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { MenuComponent } from './menu/menu.component';
-import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { NewProductFormComponent } from './new-product-form/new-product-form.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { AboutMeComponent } from './core/components/about-me/about-me.component';
+import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
+import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { CheckOutComponent } from './shopping/components/checkout/checkout.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { LoginComponent } from './core/components/login/login.component';
+import { MenuComponent } from './shopping/components/menu/menu.component';
+import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
+import { NewProductFormComponent } from './admin/components/new-product-form/new-product-form.component';
+import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
+import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
 
 const routes: Routes = [
   {path : "", redirectTo:"home", pathMatch:"full"},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path : "new-product", component : NewProductFormComponent, canActivate:[AuthGuard, AdminAuthGuard]},
   { path : "my/orders", component :  MyOrdersComponent, canActivate:[AuthGuard]},
   { path : "admin/orders", component :  AdminOrdersComponent, canActivate:[AuthGuard, AdminAuthGuard]},
+  {path : "order-success/:id", component:OrderSuccessComponent, canActivate:[ AuthGuard ]},
   {path: '**', component:HomeComponent}
 ];
 
