@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-content" *ngIf="cart">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-4" >You have {{ totalItemsCount }} items in your shopping cart</p>
+        </div>
+      </div>
+      <table class="table is-bordered is-fullwidth is-hoverable"  >
+        <tr *ngFor = "let item of cart">
+          <td> {{ item.quantity }} x {{ item.title }} <span style ="float: right;">{{ item.price  | currency:"USD"}}</span> </td>
+        </tr>
+        <tr>
+          <td class = "has-text-weight-bold">
+            Total: <span style = "float: right;">{{ cart.totalPrice | currency:"USD" }}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+</div>
+
+
+<!-- {{ cart | json }} -->
+

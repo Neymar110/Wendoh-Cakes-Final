@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ShoppingCart } from '../models/shopping-cart';
 import { ShoppingCartService } from '../shopping-cart.service';
-import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +16,7 @@ export class ShoppingCartComponent implements OnInit {
   displayCart: any
   cart: any
 
-  constructor(private shoppingCartService : ShoppingCartService, private productService : ProductService) { }
+  constructor(private shoppingCartService : ShoppingCartService, private router: Router) { }
 
   async ngOnInit() {
     this.cart$ = await this.shoppingCartService.getCart();
@@ -26,14 +25,25 @@ export class ShoppingCartComponent implements OnInit {
 
   async getCart() {    
     this.cartSubscription = this.cart$.subscribe(data => {
-      // console.log(Object.values(data.items))
-      this.cart = data
-      this.displayCart = Object.values(data.items);
-      this.displayCart['totalPrice'] = 0;
-      for(let item of this.displayCart){
-        let totalPrice = item.product.price * item.quantity;
-        this.displayCart['totalPrice'] += totalPrice;
-        item['totalPrice'] = totalPrice
+      if (data){
+        this.cart = data
+        this.displayCart = Object.values(data.items);
+        let keyArray = Object.keys(data.items);
+        let index = 0
+        
+        this.displayCart['totalPrice'] = 0;
+        for(let item of this.displayCart){
+          
+          let totalPrice = item.price * item.quantity;
+          
+          this.displayCart['totalPrice'] += totalPrice;
+          item['totalPrice'] = totalPrice
+          item['key'] = keyArray[index];
+          index++;
+        }
+      }
+      else{
+        this.displayCart = []
       }
     })
   }
@@ -46,11 +56,8 @@ export class ShoppingCartComponent implements OnInit {
     return count
   }
 
-  create_order(){
-    this.cartSubscription.unsubscribe();
-    this.productService.create_order(this.displayCart);
-    let cartId = localStorage.getItem("cartId");
-    this.shoppingCartService.delete_shopping_cart(cartId)
-    console.log("Order created and shopping cart deleted.")
+
+  clearCart(){
+    this.shoppingCartService.clearCart();
   }
 }

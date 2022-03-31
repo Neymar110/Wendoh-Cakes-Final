@@ -1,35 +1,53 @@
 <navbar></navbar>
 <h1 class = "title"> Shopping Cart</h1>
-<ng-container *ngIf = "cart">
+<ng-container *ngIf = "displayCart">
     <p>
         You have {{ totalItemsCount }} items in your shopping cart.
+        <button 
+    *ngIf="displayCart.length"
+    (click) = "clearCart()"  
+    class="button is-light is-small">Clear Shopping Cart</button>
     </p>
-    <table class="table is-fullwidth is-hoverable">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of displayCart">
-                <td>{{item.product.title}}</td>
-                <td class="pq">
-                    <product-quantity [product] = "item.product" [shopping-cart] = "cart"></product-quantity>
-                    <!-- <p>100</p> -->
-                </td>
-                <td>{{ item.totalPrice   | currency:"KSH: " :'symbol':'1.1' }}</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th></th>
-                <th></th>
-                <th>{{ displayCart.totalPrice | currency:"KSH: " :'symbol':'1.1'}}</th>
-            </tr>
-        </tfoot>
-    </table>
-</ng-container>
+    <div class="columns">
+        <div class="column is-fullwidth">
+            <table class="table is-fullwidth is-hoverable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th class = "has-text-centered" style ="width : 230px">Quantity</th>
+                        <th style="width : 200px">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of displayCart">
+                        <td>
+                            <!-- <img src="item.imageUrl" alt=""> -->
+                            <img [src]="item.imageUrl" alt="">
+                            <div [style.backgroundImage]="'url('+item.imageUrl+')'" class = "thumbnail hello"></div>
+                        </td>
+                        <td>{{item.title}}</td>
+                        <td class="pq">
+                            <product-quantity [product] = "item" [shopping-cart] = "cart"></product-quantity>
+                    </td>
+                        <td>{{ item.totalPrice   | currency:"KSH: " :'symbol':'1.1' }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class = "has-text-right">{{ displayCart.totalPrice | currency:"KSH: " :'symbol':'1.1'}}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
 
-<button class = "button is-medium" (click)="create_order()">Create Order</button>
+
+    <a
+    *ngIf="displayCart.length"
+    class = "button is-link" 
+    routerLink="/check-out">Create Order</a>
+</ng-container>

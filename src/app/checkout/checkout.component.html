@@ -1,0 +1,8 @@
+<navbar></navbar>
+<h2 class = "has-text-weight-bold">Shipping</h2>
+<div *ngIf = "cart$ | async as cart">
+  <div class="columns">
+    <shipping-form [cart] = "cart" class = "column"></shipping-form>
+    <shopping-cart-summary [cart] = "cart" class = "column"></shopping-cart-summary>
+  </div>
+</div>
