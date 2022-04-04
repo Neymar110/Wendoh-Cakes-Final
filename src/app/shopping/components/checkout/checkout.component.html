@@ -1,5 +1,5 @@
-<navbar></navbar>
-<h2 class = "has-text-weight-bold">Shipping</h2>
+<new-nav></new-nav>
+<h2 class = "has-text-weight-bold has-text-centered">Shipping</h2>
 <div *ngIf = "cart$ | async as cart">
   <div class="columns">
     <shipping-form [cart] = "cart" class = "column"></shipping-form>

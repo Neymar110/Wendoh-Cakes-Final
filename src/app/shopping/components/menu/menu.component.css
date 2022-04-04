@@ -6,7 +6,7 @@
     background-size: cover;
     height: inherit;
     display: table;
-    width: 100%;
+    width: 100vw;
 }
 
 .menuContainer {
@@ -40,7 +40,7 @@
 
 /* RECOMMENDATIONS */
 .todays-recommendation {
-    background: #302f2d;
+    background: #3d3838;
     padding: 34px 0 31px;
     text-align: center;
 }

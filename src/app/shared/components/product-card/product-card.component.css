@@ -1,3 +1,7 @@
 .fullWidth{
     width: 100%;
 }
+
+.price {
+    margin-left : 16px;
+}

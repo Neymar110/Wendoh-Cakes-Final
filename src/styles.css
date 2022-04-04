@@ -8,10 +8,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 * {
     padding : 0px;
     margin : 0px;
     text-decoration: none;
     list-style: none;
+}
+
+::-webkit-scrollbar {
+    width : 0;
 }

@@ -1,0 +1,115 @@
+
+
+/* NAVIGATION BAR */
+  
+  .navbar {
+    height : 11vh;
+    background : #1b1919;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+  }
+  
+  .navbar-logo {
+    color : white;
+    text-decoration : none;
+    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Lobster', cursive; */
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+    width : 9.5rem;
+    transition : 0.7s all ease-in-out;
+  }
+  
+  
+  .navbar-logo:hover {
+    text-decoration : none;
+    color : orange;
+    width : 9rem;
+  }
+  
+  .nav-items {
+    display : flex;
+    font-family: 'Dancing Script', cursive;
+    font-size : 15px;
+    text-align : center;
+    width : 70vw;
+    justify-content: flex-end;
+    align-items: center;
+    color : white;
+  }
+  
+  .nav-items a {
+    text-decoration: none ;
+    color : white;
+    font-size : 1.1rem;
+  }
+  
+  .nav-items li{
+    margin : 0px 6px;
+    transition : 0.7s all ease-out;
+  }
+  
+  .nav-items li:hover {
+    color : orange;
+    cursor : pointer;
+    letter-spacing: 2px;
+  }
+
+  .nav-items li:hover a{
+    color : orange;
+    
+  }
+  
+  ul li a:hover i {
+    color : orange
+  }
+  
+  
+  .profile-submenu {
+    width : 10rem;
+    position  : absolute;
+    right : 95px;
+    list-style-type : none;
+    background : white;
+    border-radius : 5px;
+  }
+  
+  .profile-submenu li{
+    margin : 0;
+    padding : 20px 0;
+    cursor : pointer;
+  }
+  
+  .profile-submenu li:hover {
+    background-color : orange;
+    border-radius: 5px;
+  }
+  
+  .profile-submenu li:hover a{
+    color : white
+  }
+  
+  .profile-submenu  li a {
+    display : block;
+    width : 100%;
+    height : 100%;
+    text-decoration : none;
+    color : black;
+    font-size : 15px;
+  }
+  
+  .clicked {
+      display : none;
+  }
+  
+  ul.nav-items li a i.onclick {
+    /* background-color: orange; */
+    /* background: orange; */
+    color : orange;
+  }
+
+  .cart {
+    margin-right : 7px;
+  }

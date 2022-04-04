@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NewNavComponent } from './components/new-nav/new-nav.component';
 
 
 
@@ -16,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FooterComponent,
     AboutMeComponent,
     LoginComponent,
+    NewNavComponent,
   ],
   imports: [
     SharedModule,
@@ -24,7 +26,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   exports:[
     NavbarComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewNavComponent
   ]
 })
 export class CoreModule { }

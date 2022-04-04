@@ -1,0 +1,25 @@
+<nav class = "navbar">
+    <a routerLink = "" class = "navbar-logo">WENDOH CAKES
+      <i class="fa-solid fa-cake-candles"></i>
+    </a>
+    <ul class = "nav-items">
+      <li routerLink = "/menu"><a >MENU</a></li>
+      <li routerLink = "/shopping-cart"><a  class = 'cart'>CART</a><i class="fa-solid fa-cart-shopping"></i></li>
+      <li routerLink = "/about-me"><a>ABOUT ME</a></li>
+      <li *ngIf = "user">
+        <a (click) ="onClick()">
+          <i class="fa-solid fa-circle-user user-icon" [class.onclick] = 'clicked'>
+          </i> 
+        </a>
+        <div *ngIf = "clicked">
+          <ul class = "profile-submenu">
+            <li (click) ="onClick()" routerLink = "/my/orders"><a >MY ORDERS</a></li>
+            <li (click) ="logout()" routerLink = "/login"><a>LOGOUT</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li *ngIf="!user" routerLink = "/logout">LOGIN</li>
+    </ul>  
+  </nav>
+

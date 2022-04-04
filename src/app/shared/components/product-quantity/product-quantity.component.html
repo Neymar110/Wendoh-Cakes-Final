@@ -1,12 +1,12 @@
 <div class="columns fullWidth "  >
     <div class="column">
-        <button *ngIf = "getQuantity() > 0" (click) = "removeFromCart()"  class = "button is-light is-fullwidth">-</button>
+        <button *ngIf = "getQuantity() > 0" (click) = "removeFromCart()"  class = "button is-light is-fullwidth minus"><i class="fa-solid fa-minus"></i></button>
     </div>
     <div class = "column">
-        <div class = "has-text-centered">{{ getQuantity() }} in cart</div>
+        <div class = "has-text-centered has-text-weight-semibold">{{ getQuantity() }} in cart</div>
     </div>
     <div class="column">
-        <button (click) = "addToCart()" class = "button is-light is-fullwidth">+</button>
+        <button (click) = "addToCart()" class = "button is-light is-fullwidth plus"><i class="fa-solid fa-plus"></i></button>
     </div>
 </div>
 

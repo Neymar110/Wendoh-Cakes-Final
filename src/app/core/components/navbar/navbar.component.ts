@@ -49,9 +49,6 @@ export class NavbarComponent implements OnInit{
       this.styling = "black"
     }
   }
-  onClick() {
-    this.value = !this.value
-  }
 
   ifOrders(){
     let orders = this.orderService.getOrders()

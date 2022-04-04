@@ -6,7 +6,7 @@ import { Product } from '../../../shared/models/product';
 import { ProductService } from '../../../shared/services/product.service';
 
 @Component({
-  selector: 'new-product-form',
+  selector: 'product-form',
   templateUrl: './new-product-form.component.html',
   styleUrls: ['./new-product-form.component.css']
 })

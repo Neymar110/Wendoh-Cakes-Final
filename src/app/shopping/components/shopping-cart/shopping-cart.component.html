@@ -1,12 +1,12 @@
-<navbar></navbar>
-<h1 class = "title"> Shopping Cart</h1>
+<new-nav></new-nav>
+<h1 class = "title has-text-centered">Shopping Cart</h1>
 <ng-container *ngIf = "displayCart">
     <p>
         You have {{ totalItemsCount }} items in your shopping cart.
         <button 
     *ngIf="displayCart.length"
     (click) = "clearCart()"  
-    class="button is-light is-small">Clear Shopping Cart</button>
+    class="button is-light is-small clear-cart is-rounded">Clear Shopping Cart</button>
     </p>
     <div class="columns">
         <div class="column is-fullwidth">
