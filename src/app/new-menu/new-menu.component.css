@@ -1,0 +1,71 @@
+/* div {
+    display : flex;
+    height : 100vh;
+    justify-content: center;
+    align-items: center; 
+    
+}
+div.a{
+    background-color: green; 
+}
+
+div.b{
+    background-image : url("../../assets/Main Pictures/pancake.jpg");
+    width : 100%;
+    height : 100%
+} */
+
+
+.container {
+    position: relative;
+    width: 70%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    opacity: 80%;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .container-a:hover .overlay {
+    bottom: 0;
+    height: 100%;
+  }
+  
+  .text {
+    white-space: nowrap; 
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+.minus:hover {
+    background-color : red;
+}
+
+.plus:hover {
+    background-color : rgb(14, 170, 14);
+}
+
+.container-a {
+  position: relative;
+  width : 100%;
+}

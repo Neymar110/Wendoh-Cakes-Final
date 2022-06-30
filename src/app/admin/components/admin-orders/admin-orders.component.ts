@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from '../../../shared/models/shopping-cart';
 import { OrderService } from '../../../shared/services/order-service.service';
 import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
 
 @Component({
-  selector: 'app-admin-orders',
+  selector: 'admin-orders',
   templateUrl: './admin-orders.component.html',
   styleUrls: ['./admin-orders.component.css']
 })
@@ -16,16 +16,17 @@ export class AdminOrdersComponent {
   orders$;
   user$;
   cart$ :Promise<Observable<ShoppingCart>> ;
+  showMyDiv: boolean;
+  thisorder: any;
   constructor(orderService : OrderService, cart : ShoppingCartService){
       this.orders$ = orderService.getOrders().valueChanges()
       this.cart$ = cart.getCart()
     }
 
-    onClick(order?){
-      if (order){
-        this.displayOrder = order
-      }
-      this.apple = !this.apple
-    }
+    
+  onClick(order:any){
+    this.showMyDiv = true
+    this.thisorder = order
+  }
 
 }

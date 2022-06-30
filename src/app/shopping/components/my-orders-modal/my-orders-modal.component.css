@@ -1,0 +1,50 @@
+div.columns.main {
+    /* max-height: 90vh; */
+    /* height : 500px */
+}
+
+div.columns.main > div.column {
+    overflow: scroll;
+}
+
+/* div.columns.main > div.column  div.block{
+    border-bottom: solid 1px #353535;
+} */
+
+div.columns.main > div.column.a {
+    border-left: solid 1px black;
+}
+
+div.is-hoverable {
+    margin-top:24px;
+    transition: 1s;
+}
+
+div.is-hoverable:hover {
+    cursor:pointer;
+    background-color: #bbbbbb;
+}
+div.is-hoverable:hover:not(:first-child) {
+    margin-top:-24px;
+    transition: 1s;
+}
+
+
+div.onClick {
+    display:none
+}
+
+/* div.main-content > div.columns > div.column {
+    height: 300px;
+} */
+
+div.column {
+    overflow: scroll;
+}
+
+button.delete {
+    cursor:pointer;
+    margin-left : 1000px;
+    margin-top : -5px;
+}
+

@@ -52,18 +52,16 @@
   }
   
   .nav-items li:hover {
-    color : orange;
     cursor : pointer;
     letter-spacing: 2px;
   }
 
   .nav-items li:hover a{
-    color : orange;
-    
+    /* color : orange; */
   }
   
   ul li a:hover i {
-    color : orange
+    /* color : orange */
   }
   
   

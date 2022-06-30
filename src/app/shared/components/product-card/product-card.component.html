@@ -1,27 +1,28 @@
-<div *ngIf = "product.title" class="card-image">
-    <figure class="image is-4by3">
-        <img *ngIf = "product.imageUrl" [src]="product.imageUrl" alt="{{ product.title }}">
-    </figure>
-</div>     
-<div class="card-content">
-    <div class="media">
-        <div class="media-left"></div>
-        <div class="media-content">
-        <p class="title is-4">{{ product.title }}</p>
-        <p class="subtitle is-6">{{ product.description }}</p>
+    <div class="card">
+    <div *ngIf="product.imageUrl" class="card-image">
+        <figure class="image is-4by3">
+            <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="{{ product?.title || '' }}">
+        </figure>
+    </div>
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left"></div>
+            <div class="media-content">
+                <p class="title is-4">{{ product.title }}</p>
+                <p class="subtitle is-6">{{ product.description }}</p>
+            </div>
+        </div>
+        <div class="content has-text-weight-semibold">
+            <p>{{ product.price | currency:"KSH: " :'symbol':'1.1' }}</p>
+            <hr>
+            <p *ngIf = "showQuantity">Qty : {{ product.quantity }}</p>
         </div>
     </div>
-    <div class="content has-text-weight-semibold">
-        {{ product.price | currency:"KSH: " :'symbol':'1.1' }}
-        <br>
-    </div>
+    <footer class="card-footer" *ngIf="showActions">
+        <button *ngIf="getQuantity() === 0; else updateQuantity" (click)="addToCart()"
+            class="button is-link is-fullwidth">Add to cart</button>
+        <ng-template #updateQuantity class="fullWidth">
+            <product-quantity [product]="product" [shopping-cart]="shoppingCart"></product-quantity>
+        </ng-template>
+    </footer>
 </div>
-<footer class="card-footer" *ngIf= "showActions">
-    <button
-    *ngIf = "getQuantity() === 0; else updateQuantity"
-    (click) = "addToCart()"
-    class="button is-link is-fullwidth" >Add to cart</button>
-    <ng-template #updateQuantity class = "fullWidth">
-        <product-quantity [product] = "product" [shopping-cart]="shoppingCart"></product-quantity>
-    </ng-template>
-</footer>

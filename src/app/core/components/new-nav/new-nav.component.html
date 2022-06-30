@@ -13,7 +13,10 @@
         </a>
         <div *ngIf = "clicked">
           <ul class = "profile-submenu">
-            <li (click) ="onClick()" routerLink = "/my/orders"><a >MY ORDERS</a></li>
+            <li><a>{{ user.name }}</a></li>
+            <li *ngIf = "user.isAdmin" routerLink="/admin/orders"><a>ALL ORDERS</a></li>
+            <li routerLink = "/my/orders"><a >MY ORDERS</a></li>
+            <li *ngIf = "user.isAdmin" routerLink="/new-product" ><a>NEW PRODUCT</a></li>
             <li (click) ="logout()" routerLink = "/login"><a>LOGOUT</a></li>
           </ul>
         </div>

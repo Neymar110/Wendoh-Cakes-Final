@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Observable, of } from 'rxjs';
 
@@ -13,24 +13,38 @@ import { AppUser } from '../models/app-user';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  user$ : Observable<any>;
+export class AuthService implements OnInit {
+  user$: Observable<any>;
 
-  constructor(private afAuth : AngularFireAuth, private route:ActivatedRoute, private userService : UserService) {
+  constructor(private afAuth: AngularFireAuth, private route: ActivatedRoute, private userService: UserService, private router: Router) {
     this.user$ = afAuth.authState;
-}
+  }
+  ngOnInit(): void {
+    this.afAuth.onAuthStateChanged(user => {
+      if (user) {
+        let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+        console.log(returnUrl);
 
-  login(){
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+        this.router.navigate([returnUrl])
+      }
+    })
+  }
+
+
+
+  login() {
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
+    // console.log(this.route.snapshot.queryParamMap.keys)
     localStorage.setItem('returnUrl', returnUrl);
-    
+
+
     this.afAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-}
-  logout(){
+  }
+  logout() {
     this.afAuth.signOut();
   }
 
-  get appUser$(): Promise<Observable<AppUser | null> | null> {    
+  get appUser$(): Promise<Observable<AppUser | null> | null> {
     return new Promise((resolve, reject) => {
       let userUID$;
 
@@ -38,7 +52,7 @@ export class AuthService {
         if (user) {
           userUID$ = user.uid
 
-          if(userUID$){
+          if (userUID$) {
             resolve(this.userService.get(userUID$).valueChanges());
           }
           else {
@@ -48,7 +62,7 @@ export class AuthService {
         else {
           resolve(of(null))
         }
-      }); 
+      });
     })
   }
 }

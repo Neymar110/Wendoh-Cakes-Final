@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Order } from 'src/app/shared/models/order';
 import { AuthService } from '../../../shared/services/auth.service';
 import { OrderService } from '../../../shared/services/order-service.service';
 
@@ -10,11 +11,12 @@ import { OrderService } from '../../../shared/services/order-service.service';
   styleUrls: ['./my-orders.component.css']
 })
 export class MyOrdersComponent {
-
+  isActive:boolean = false;
   orders$;
   user$;
   userSubscription:Subscription
   sub:any;
+  displayOrder: Order
 
   constructor(
     private authService : AuthService,
@@ -22,4 +24,10 @@ export class MyOrdersComponent {
 
       this.orders$ = authService.user$.pipe(switchMap(u => orderService.getOrdersByUser(u.uid).valueChanges()));
     }
+
+    isActiveFunction(order?: Order){
+      this.isActive = !this.isActive
+      if(order) this.displayOrder = order
+    }
 }
+

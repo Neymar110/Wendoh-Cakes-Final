@@ -1,23 +1,24 @@
-<!-- <navbar [color] = "false" [displayType] = "true"></navbar> -->
 <new-nav></new-nav>
-<div class = "bg-img" id = "menu">   
-    <section class="menuContainer">
+<div class="bg-img" id="menu" style="background-image: url('assets/shop attendant.jpg');">
+    <section class="section">
         <div class="columns">
             <div class="column is-3">
-                <product-filter [category] = "category"></product-filter>
+                <updated-product-filter [category]="category"></updated-product-filter>
             </div>
-            <div class = "columns is-multiline main">
-                <div 
-                *ngFor = "let p of filteredProducts"
-                class="column card is-one-third">
-                    <product-card [product] = "p" [shopping-cart] = "cart"></product-card>
+            <div class="column">
+                <div class="columns is-multiline">
+                    <div *ngFor="let p of filteredProducts" class="column is-one-third">
+                        <product-card [product]="p" [shopping-cart]="cart"></product-card>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
 
-<div class = "todays-recommendation">
+<div class="todays-recommendation">
     <p>TODAYS RECOMMENDATION IS</p>
-    <h4>Cupcakes!!  </h4>
+    <h4>Cupcakes!! </h4>
 </div>
+
+

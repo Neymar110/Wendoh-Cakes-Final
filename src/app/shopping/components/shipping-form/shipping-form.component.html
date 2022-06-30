@@ -1,42 +1,58 @@
-<form #f="ngForm" (ngSubmit) = "placeOrder()">
+<form #f="ngForm" (ngSubmit)="placeOrder()">
     <div class="field">
-    <label class = "label">Name</label>
-    <div class="control">
-        <input class = "input" #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" required>
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" required>
+        </div>
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors.required is-warning">Name is required.</div>
+        </div>
     </div>
-    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-        <div *ngIf="name.errors.required is-warning">Name is required.</div>
-    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <label class="label">Phone Number</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-expanded">
+                <div class="field has-addons">
+                    <p class="control">
+                        <a class="button is-static">
+                            +
+                        </a>
+                    </p>
+                    <p class="control is-expanded">
+                        <input class="input" #phoneNumber="ngModel" name="phoneNumber"
+                            [(ngModel)]="shipping.phoneNumber" type="text" placeholder="254123456789" maxlength="12"
+                            required>
+                    </p>
+                </div>
+                <p class="help">Do not enter the first zero</p>
+                <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">
+                    <p class="help is-danger" *ngIf="phoneNumber.errors.required">Phone Number Is Required</p>
+                    <p class="help is-danger" *ngIf="phoneNumber.errors.maxlength">Phone Number Is Too Long</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="field">
-    <label class = "label">Phone Number</label>
-    <div class="control">
-        <input class = "input" #phoneNumber="ngModel" name="phoneNumber" [(ngModel)]="shipping.phoneNumber" type="text" placeholder="0720867183" required>
-    </div>
-    <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">
-        <div *ngIf="phoneNumber.errors.required">Phone Number Is Required</div>
-    </div>
-    </div>
-    <div class="field">
-    <label class = "label">Email</label>
-    <div class="control">
-        <input class = "input" #email="ngModel" name="email" [(ngModel)]="shipping.email" type="text" placeholder="Jonny@gmail.com" required>
-    </div>
-    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
-        <div *ngIf="email.errors.required">Email is required.</div>
-    </div>
+        <label class="label">Email</label>
+        <div class="control">
+            <input class="input" #email="ngModel" name="email" [(ngModel)]="shipping.email" type="text"
+                placeholder="Jonny@gmail.com" required>
+        </div>
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+            <div *ngIf="email.errors.required">Email is required.</div>
+        </div>
     </div>
     <div class="field">
-    <label class = "label">City</label>
-    <div class="control">
-        <input class = "input" #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" required>
+        <label class="label">City</label>
+        <div class="control">
+            <input class="input" #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" required>
+        </div>
+        <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+            <div *ngIf="city.errors.required">City is required.</div>
+        </div>
     </div>
-    <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
-        <div *ngIf="city.errors.required">City is required.</div>
-    </div>
-    </div>
-    <button
-    [disabled]="!f.valid" 
-    type="submit"
-    class="button">Place Order</button>
+    <button [disabled]="!f.valid" type="submit" class="button">Place Order</button>
 </form>

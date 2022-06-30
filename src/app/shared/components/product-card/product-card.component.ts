@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent{
+  @Input("showQuantity") showQuantity:boolean = false;
   @Input('product') product:any;
   @Input('show-actions') showActions : boolean = true;
   @Input('shopping-cart') set shopping_cart(cart: any){

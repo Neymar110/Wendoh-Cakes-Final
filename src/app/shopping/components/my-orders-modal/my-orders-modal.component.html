@@ -1,0 +1,29 @@
+<div class="container is-fluid m">
+    <section class="section">
+        <div class="box">
+            <button class="delete" aria-label="close" (click)="closeMe()"></button>
+            <div class="columns main">
+                <div class="column is-3">
+                    <div class="content">
+                        <!-- <div class="block is-hoverable" *ngFor="let item of items"> -->
+                        <p class="has-text-justified is-size-7">{{ order.shipping.name }} - {{ order.datePlaced | date}}</p>
+                        <div class="block" *ngFor="let item of order.shoppingCart">
+                            <div class="has-text-weight-medium">
+                                <p>{{ item.title }} x {{item.quantity}}</p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column main-content">
+                    <div class="columns is-multiline ">
+                        <div class="column is-one-third" *ngFor="let item of order.shoppingCart">
+                            <product-card [showQuantity] = "true" [product]="item" [show-actions]="false"></product-card>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -20,7 +20,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths":{
+      "app/*":["app/*"] ,
+      "@assets/*": ["assets/*"],
+      "shared/*":["shared/*"],
+      "shopping/*":["shopping/*"],
+      "admin/*":["admin/*"],
+      "core/*":["core/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

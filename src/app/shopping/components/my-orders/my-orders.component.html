@@ -1,6 +1,6 @@
 <new-nav></new-nav>
-<h1>Orders</h1>
-<table class="table">
+<h1 class = "title has-text-centered">Your Orders</h1>
+<!-- <table class="table is-fullwidth is-hoverable">
   <thead>
     <tr>
       <th>Customer</th>
@@ -13,8 +13,32 @@
       <td>{{ order.shipping.name }}</td>
       <td>{{ order.datePlaced | date}}</td>
       <td>
-        <a>View</a>
+        <a (click)="isActiveFunction(order)">View</a>
       </td>
     </tr>
   </tbody> 
-</table>
+</table> -->
+
+<div class="block" *ngFor="let order of orders$ | async; let i = index">
+  <div class="container is-fluid">
+    <div class="box" [class.darker-box]="i%2 == 0">
+      <div class="content">
+        <div class="columns">
+          <div class="column is-11">
+            <p>{{order.shipping.name}}</p>
+          </div>
+          <div class="column">
+            <a (click)="isActiveFunction(order)">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" [class.is-active]="isActive" *ngIf = "displayOrder as order">
+  <div (click)="isActiveFunction()" class="modal-background" ></div>
+  <div class="modal-content">
+    <my-orders-modal (closeEvent)="isActiveFunction()" [order]="displayOrder"></my-orders-modal>
+  </div>
+</div>

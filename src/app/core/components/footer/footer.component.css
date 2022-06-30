@@ -1,7 +1,8 @@
 /* LEFT SIDE */
 
 footer {
-    position : fixed;
+    /* position : fixed; */
+    height : 280px;
     padding : 40px 40px;
     background-color: #1b1919;
     overflow: hidden;

@@ -1,0 +1,12 @@
+/* table {
+    height : calc(100vh - 240px);
+} */
+
+
+div.modal-content {
+    width : 80vw;
+}
+
+.darker-box {
+    background-color: #efefef;
+}

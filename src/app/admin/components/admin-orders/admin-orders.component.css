@@ -1,0 +1,46 @@
+div.columns.main {
+    max-height: 80vh;
+    /* height : 500px */
+}
+
+div.columns.main > div.column {
+    overflow: scroll;
+}
+
+
+
+div.columns.main > div.column  div.block{
+    border-bottom: solid 1px #353535;
+}
+
+div.columns.main > div.column.a {
+    border-left: solid 1px black;
+}
+
+div.is-hoverable {
+    margin-top:24px;
+    transition: 1s;
+}
+
+div.is-hoverable:hover {
+    cursor:pointer;
+    background-color: #bbbbbb;
+}
+div.is-hoverable:hover:not(:first-child) {
+    margin-top:-24px;
+    transition: 1s;
+}
+
+
+div.onClick {
+    display:none
+}
+
+div.a {
+    overflow: scroll;
+}
+
+div.column {
+    overflow: scroll;
+}
+

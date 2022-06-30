@@ -1,0 +1,7 @@
+div.push{
+    height : 280px
+}
+
+div.content-container {
+    margin-bottom: -280px;
+}

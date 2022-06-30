@@ -15,11 +15,14 @@ export class AuthGuard implements CanActivate {
     return new Promise((resolve, reject) => {
       this.auth.user$.subscribe(user => {
         if (user) {
+          // console.log('user logged in redirect');
           resolve(true);
         }
   
         else {
-          this.router.navigate(['/login'], { queryParams:{ returnUrl: state.url } });
+          // console.log('not logged in redirect');
+          
+          this.router.navigate(['/login'], );
           resolve(false);}
       });
   })

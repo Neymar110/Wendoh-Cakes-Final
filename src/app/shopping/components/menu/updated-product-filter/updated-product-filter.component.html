@@ -1,0 +1,17 @@
+<article class="panel is-info">
+    <p class="panel-heading has-text-centered">
+      Pastries
+    </p>
+    <a class="panel-block is-active" routerLink="/menu" [class.is-active] = "!category">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      All
+    </a>
+    <a *ngFor = "let c of categories$" class="panel-block" [class.is-active] = "category === c.$key" routerLink="/menu" [queryParams]="{ category:c.$key }">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      {{ c.name }}
+    </a>
+</article>

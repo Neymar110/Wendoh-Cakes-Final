@@ -1,0 +1,30 @@
+<new-nav></new-nav>
+<!-- <div class="columns">
+    <div class="column is-half a">
+        <div class = "header"> -->
+            <!-- <h2>{{ item.title }}</h2> -->
+            <!-- <h2>Apples</h2>
+        </div>
+        <div class = "subtext">
+            <p>This is some irrelevant data from me and this costs $1.00</p>
+        </div>
+    </div>
+    <div class="column b">Auto</div>
+  </div> -->
+  <div>
+    <div class="container-a columns" *ngFor = "let p of filteredProducts">
+        <div class= "column">
+            <img [src] = "p.imageUrl" alt="Avatar" class="image">
+            <div class="overlay">
+                <div class="text" >
+                    <product-quantity [shopping-cart] = "cart" [product] = "p"></product-quantity>
+                </div>
+            </div>
+        </div>
+        <div class = "column a">
+            <h1>{{ p.title }}</h1>
+            <h6></h6>
+        </div>
+      </div>
+  </div>
+  
