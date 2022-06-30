@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { CategoryModel } from 'src/app/shared/models/category';
-import { CategoryService } from 'src/app/shared/services/category.service';
+import { CategoryModel } from 'shared/models/category';
+import { CategoryService } from 'shared/services/category.service';
 
 @Component({
   selector: 'updated-product-filter',

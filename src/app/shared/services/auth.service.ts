@@ -32,13 +32,17 @@ export class AuthService implements OnInit {
 
 
 
-  login() {
+  login_with_google() {
     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
     // console.log(this.route.snapshot.queryParamMap.keys)
     localStorage.setItem('returnUrl', returnUrl);
 
 
     this.afAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  }
+
+  login_with_email_and_password(email:string, password:string):Promise<any>{
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
   logout() {
     this.afAuth.signOut();

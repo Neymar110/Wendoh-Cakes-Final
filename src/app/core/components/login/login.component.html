@@ -1,2 +1,60 @@
-<navbar [color] = "false"></navbar>
-<button class = "button" (click) = "login()">Login With Google*</button>
+<new-nav></new-nav>
+
+<div class="bg">
+
+    <div class="container is-fluid">
+        <div class="box">
+            <h1 class="is-size-3 has-text-centered text">Sign In</h1>
+            <p class="has-text-centered text"><a routerLink="/sign-up">Have An Account?</a></p>
+            <form [formGroup]="loginForm" actions="submit()">
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="email" placeholder="Email Address" formControlName="email">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span *ngIf = "email?.errors?.email || email?.errors?.required || email?.pristine; else check" class="icon is-small is-right">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                        <ng-template #check>
+                            <span  class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </ng-template>
+                    </div>
+                    <p *ngIf = "email?.errors?.required && email?.touched" class="help is-danger" >Email is Required.</p>
+                    <p *ngIf = "email?.errors?.email" class="help is-danger" >This email is invalid</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" formControlName="password" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                            <span *ngIf = "password?.errors?.required || password?.pristine; else check" class="icon is-small is-right">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </span>
+                        <button class = "button" (click) = 'printer()'>Printer</button>
+                        <ng-template #check>
+                            <span  class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </ng-template>
+                    </div>
+                    <p *ngIf = "password?.errors?.required && password?.touched" class="help is-danger">Password is Required.</p>
+                    <p *ngIf = "password?.errors?.minLength" class="help is-danger">Min length is 8 Characters</p>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-link move-right is-success" type="submit" (click) = "submit()">Sign In</button>
+                    </div>
+                </div>
+                <span>New here? <a routerLink="/sign-up">Sign Up!</a></span>
+            </form>
+        </div>
+    </div>
+    <!-- <button class = "button" (click) = "google_login()">Login With Google*</button> -->
+</div>

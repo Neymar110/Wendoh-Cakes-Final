@@ -1,0 +1,32 @@
+div.bg {
+    background-image: url("assets/Main Pictures/Login.jpg");
+    height : 85vh;
+    background-size: cover;
+}
+
+div.is-fluid {
+    padding-top : 60px;
+    width : 500px;
+    margin-left: 550px;
+}
+
+div.box {
+    width : 420px;
+    height : 500px;
+}
+
+div.box > h1.text, p.text {
+    font-family: 'Roboto', sans-serif;
+}
+
+div.control > button.move-right {
+    margin-left : 150px;
+}
+
+span.icon >i.fa-check {
+    color : green
+}
+
+span.icon >i.fa-exclamation-triangle {
+    color : red
+}

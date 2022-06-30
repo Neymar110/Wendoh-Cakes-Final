@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
-import { Order } from 'src/app/shared/models/order';
+import { Order } from 'shared/models/order';
 import { AuthService } from '../../../shared/services/auth.service';
 import { OrderService } from '../../../shared/services/order-service.service';
 

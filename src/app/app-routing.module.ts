@@ -13,6 +13,7 @@ const routes: Routes = [
   {path : "about-me", component : AboutMeComponent},
   {path : "login", component : LoginComponent},
   {path : "logout", component: LoginComponent},
+  {path :  "sign-up", component:HomeComponent},
   {path : "new-menu", component : NewMenuComponent},
   {path : "new-my-orders", component : MyOrdersModalComponent},
   {path : "order-success", component : OrderSuccessComponent},
